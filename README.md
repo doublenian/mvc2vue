@@ -7,6 +7,12 @@
 - server 中是vue 编译输出给mvc的脚本样式等文件，在实际项目中,MVC运行此部分
 
 
+> 优点: 
+
+- 在client端使用 babel-import-plugin 懒加载element-ui 组件，减小组件库大小
+- 在client 可以像使用正常vue 项目一样，引入组件，less,sass等
+- 在server 端`views/test1/template.html` 和`views/test2/template.html` 可以添加一些服务端传入的model变量
+
 
 ## client 端
 
