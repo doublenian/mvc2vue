@@ -11,13 +11,12 @@ const entryPath = path.resolve(__dirname, "./src");
 const serverViewsPath = path.resolve(__dirname, "../server/views");
 const serverScriptsPath = path.resolve(__dirname, "../server/scripts");
 // const serverAssetsPath = path.resolve(__dirname, "../server/assets");
-// const serverStylePath = path.resolve(__dirname, "../server/styles");
+const serverStylePath = path.resolve(__dirname, "../server/styles");
 module.exports = {
   entry: {
     test1: `${entryPath}/test1.js`,
     test2: `${entryPath}/test2.js`,
   },
-  watch: true,
   watchOptions: {
     aggregateTimeout: 100,
     poll: 500,
@@ -110,7 +109,7 @@ module.exports = {
     }),
     // ... 忽略 vue-loader 插件
     new MiniCssExtractPlugin({
-      filename: "blocks.[name].build.css",
+      filename: "../styles/" + "blocks.[name].build.css",
     }),
   ],
 };
