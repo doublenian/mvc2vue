@@ -20,7 +20,7 @@ export default {
 .test1-wrapper {
   padding: 100px;
   .test-class {
-    color: green;
+    color: black;
   }
 }
 </style>

@@ -3,6 +3,8 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
+
 // const webpack = require("webpack");
 const entryPath = path.resolve(__dirname, "./src");
 // const serverPath = path.resolve(__dirname, "../server");
@@ -17,8 +19,8 @@ module.exports = {
   },
   watch: true,
   watchOptions: {
-    aggregateTimeout: 0,
-    poll: 1000,
+    aggregateTimeout: 100,
+    poll: 500,
     ignored: /node_modules/,
   },
   output: {
@@ -28,6 +30,9 @@ module.exports = {
   },
   resolve: {
     extensions: [".js", ".json", ".vue"],
+  },
+  cache: {
+    type: "filesystem",
   },
   module: {
     rules: [
@@ -58,6 +63,8 @@ module.exports = {
     ],
   },
   optimization: {
+    minimize: true,
+    minimizer: [new TerserPlugin()],
     splitChunks: {
       cacheGroups: {
         styles: {
